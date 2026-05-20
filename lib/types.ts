@@ -29,6 +29,7 @@ export interface Producto {
   edadMax?: number | null;
   destacado: boolean;
   activo: boolean;
+  agotado: boolean;
   orden: number;
   categoriaId?: number | null;
   categoria?: Categoria | null;

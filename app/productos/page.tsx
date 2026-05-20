@@ -99,6 +99,11 @@ export default function ProductosPage() {
                       Inactivo
                     </span>
                   )}
+                  {p.agotado && p.activo && (
+                    <span className="absolute top-2 right-2 px-2 py-0.5 bg-slate-900 text-white text-[10px] font-bold rounded">
+                      Agotado
+                    </span>
+                  )}
                 </div>
                 <div className="p-3 flex-1 flex flex-col">
                   <div className="text-xs text-slate-500">{p.sku}</div>
@@ -185,6 +190,7 @@ function ProductoModal({
     edadMax: producto?.edadMax ?? '',
     destacado: producto?.destacado ?? false,
     activo: producto?.activo ?? true,
+    agotado: producto?.agotado ?? false,
     categoriaId: producto?.categoriaId ?? '',
     orden: producto?.orden ?? 0,
   });
@@ -351,6 +357,15 @@ function ProductoModal({
                 className="h-4 w-4"
               />
               Destacado
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={form.agotado}
+                onChange={(e) => setForm({ ...form, agotado: e.target.checked })}
+                className="h-4 w-4"
+              />
+              Agotado (visible pero no se puede comprar)
             </label>
             <Field label="Orden">
               <input
