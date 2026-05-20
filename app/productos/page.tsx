@@ -193,13 +193,15 @@ function ProductoModal({
     e.preventDefault();
     setSaving(true);
     try {
+      // Para campos OPCIONALES: si están vacíos enviamos null (no undefined)
+      // para que Prisma los borre. undefined le indica "no cambies este campo".
       const payload = {
         ...form,
         precio: Number(form.precio),
-        precioPromo: form.precioPromo === '' ? undefined : Number(form.precioPromo),
-        edadMin: form.edadMin === '' ? undefined : Number(form.edadMin),
-        edadMax: form.edadMax === '' ? undefined : Number(form.edadMax),
-        categoriaId: form.categoriaId === '' ? undefined : Number(form.categoriaId),
+        precioPromo: form.precioPromo === '' || form.precioPromo == null ? null : Number(form.precioPromo),
+        edadMin: form.edadMin === '' || form.edadMin == null ? null : Number(form.edadMin),
+        edadMax: form.edadMax === '' || form.edadMax == null ? null : Number(form.edadMax),
+        categoriaId: form.categoriaId === '' || form.categoriaId == null ? null : Number(form.categoriaId),
         stock: Number(form.stock),
         orden: Number(form.orden),
       };
