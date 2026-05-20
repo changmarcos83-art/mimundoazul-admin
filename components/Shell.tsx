@@ -11,6 +11,7 @@ import {
   LogOut,
   Menu,
   X,
+  Quote,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
 
@@ -18,6 +19,7 @@ const items = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/productos', label: 'Productos', icon: Package },
   { href: '/categorias', label: 'Categorías', icon: Tag },
+  { href: '/testimonios', label: 'Testimonios', icon: Quote },
   { href: '/configuracion', label: 'Configuración', icon: Settings },
 ];
 

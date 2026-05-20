@@ -39,3 +39,14 @@ export interface ConfiguracionItem {
   valor: string;
   descripcion?: string | null;
 }
+
+export interface Testimonio {
+  id: number;
+  nombre: string;
+  relacion?: string | null;
+  mensaje: string;
+  estrellas: number;
+  avatarUrl?: string | null;
+  orden: number;
+  activo: boolean;
+}
